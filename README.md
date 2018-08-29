@@ -1,0 +1,1 @@
+An api application that returns the shortest path for a knight to move form one location on a chessboard to another.
