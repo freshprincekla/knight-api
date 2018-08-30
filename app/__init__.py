@@ -14,7 +14,7 @@ def create_app():
         startY = int(start[1])
         endX = convertToNum(end[0])
         endY = int(end[1])
-        N = 8
+        N = 9
         board_p = [[(-1,-1) for f in range(0,N)] for i in range(0,N)]
         s = (startX,startY)
         t = (endX, endY)
@@ -58,19 +58,19 @@ def Adjacents(u):
     adj = []
     for e in [(-2,-1),(-2,1),(2,1),(2,-1),(-1,-2),(1,-2),(-1,2),(1,2)]:        
         v = (u[0] + e[0], u[1] + e[1])
-        if v[0] >= 0 and v[0] < N and v[1] >= 0 and v[1] < N: adj.append(v)
+        if v[0] >= 1 and v[0] < N and v[1] >= 1 and v[1] < N: adj.append(v)
     return adj
 
 def convertToNum(letter):
     assignment = {
-        'a':0,
-        'b':1,
-        'c':2,
-        'd':3,
-        'e':4,
-        'f':5,
-        'g':6,
-        'h':7
+        'a':1,
+        'b':2,
+        'c':3,
+        'd':4,
+        'e':5,
+        'f':6,
+        'g':7,
+        'h':8
     }
     return assignment[letter]
 
@@ -85,7 +85,7 @@ def convertToLetter(num):
         'g':7,
         'h':8
     }
-    num = num + 1
+    #num = num + 1
     for key, value in assignment.items():
         if num == value:
             return key
