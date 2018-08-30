@@ -37,7 +37,7 @@ def create_app():
             path.append(t)
 
         path.reverse()
-        count = 0
+        count = 1
         data = {}
         for place in path:
             data[count] = convertToLetter(place[0]) + '' + str(place[1])
