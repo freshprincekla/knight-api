@@ -2,7 +2,7 @@
 
 from flask import request, jsonify
 from flask_api import FlaskAPI
-from collections import deque 
+from collections import deque
 
 def create_app():
     app = FlaskAPI(__name__, instance_relative_config=True)
@@ -20,8 +20,7 @@ def create_app():
         t = (endX, endY)
         q = deque()
         q.append(s)
-        print(s)
-        board_p[s[0]][s[1]] = s # "root" of BFS-traversal points to it self 
+        board_p[s[0]][s[1]] = s # "root" of BFS-traversal points to it self
         while q:
             u = q.popleft()
             if u == t: break
@@ -31,7 +30,7 @@ def create_app():
                     q.append(v)
 
         # walk the path back (using parent "pointers")
-        path = [(t)]    
+        path = [(t)]
         while t != s:
             t = board_p[t[0]][t[1]]
             path.append(t)
@@ -56,7 +55,7 @@ def create_app():
 def Adjacents(u): 
     N = 8   
     adj = []
-    for e in [(-2,-1),(-2,1),(2,1),(2,-1),(-1,-2),(1,-2),(-1,2),(1,2)]:        
+    for e in [(-2,-1),(-2,1),(2,1),(2,-1),(-1,-2),(1,-2),(-1,2),(1,2)]:    
         v = (u[0] + e[0], u[1] + e[1])
         if v[0] >= 1 and v[0] < N and v[1] >= 1 and v[1] < N: adj.append(v)
     return adj
@@ -79,6 +78,3 @@ def convertToLetter(num):
     for key, value in assignment.items():
         if num == value:
             return key
-
-
-   
